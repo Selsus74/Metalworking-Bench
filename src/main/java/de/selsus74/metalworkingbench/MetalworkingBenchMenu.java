@@ -26,13 +26,13 @@ public class MetalworkingBenchMenu extends AbstractContainerMenu {
         addSlot(new SlotItemHandler(handler, MetalworkingBenchBlockEntity.INPUT, 8, 42) {
             @Override
             public boolean mayPlace(ItemStack stack) {
-                return !ModItems.isTool(stack);
+                return !ModRecipes.isTool(bench.getLevel(), stack);
             }
         });
         addSlot(new SlotItemHandler(handler, MetalworkingBenchBlockEntity.TOOL, 42, 42) {
             @Override
             public boolean mayPlace(ItemStack stack) {
-                return ModItems.isTool(stack);
+                return ModRecipes.isTool(bench.getLevel(), stack);
             }
         });
         addSlot(new BenchResultSlot(bench, 90, 42));

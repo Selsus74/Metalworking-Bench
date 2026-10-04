@@ -1,0 +1,13 @@
+{
+  "type": "metalworkingbench:metalworking",
+  "tool": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "input": {
+    "item": "minecraft:ancient_debris"
+  },
+  "result": {
+    "item": "minecraft:netherite_scrap",
+    "count": 2
+  }
+}

@@ -34,10 +34,6 @@ public class ModItems {
     public static final RegistryObject<Item> WIRECUTTER = ITEMS.register("wirecutter",
             () -> new Item(new Item.Properties().durability(250)));
 
-    public static boolean isTool(ItemStack stack) {
-        return stack.is(HAMMER.get()) || stack.is(WIRECUTTER.get());
-    }
-
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
