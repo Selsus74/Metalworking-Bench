@@ -1,0 +1,13 @@
+{
+  "type": "metalworkingbench:metalworking",
+  "tool": {
+    "item": "metalworkingbench:wirecutter"
+  },
+  "input": {
+    "item": "metalworkingbench:gold_plate"
+  },
+  "result": {
+    "item": "metalworkingbench:gold_wire",
+    "count": 1
+  }
+}

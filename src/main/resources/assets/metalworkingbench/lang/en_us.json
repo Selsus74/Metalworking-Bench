@@ -1,0 +1,15 @@
+{
+  "itemGroup.metalworkingbench": "Metalworking Bench",
+  "block.metalworkingbench.metalworking_bench": "Metalworking Bench",
+  "item.metalworkingbench.hammer": "Hammer",
+  "item.metalworkingbench.wirecutter": "Wirecutter",
+  "item.metalworkingbench.iron_plate": "Iron Plate",
+  "item.metalworkingbench.iron_rod": "Iron Rod",
+  "item.metalworkingbench.iron_wire": "Iron Wire",
+  "item.metalworkingbench.gold_plate": "Gold Plate",
+  "item.metalworkingbench.gold_rod": "Gold Rod",
+  "item.metalworkingbench.gold_wire": "Gold Wire",
+  "item.metalworkingbench.copper_plate": "Copper Plate",
+  "item.metalworkingbench.copper_rod": "Copper Rod",
+  "item.metalworkingbench.copper_wire": "Copper Wire"
+}

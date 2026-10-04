@@ -1,0 +1,13 @@
+{
+  "type": "metalworkingbench:metalworking",
+  "tool": {
+    "item": "metalworkingbench:hammer"
+  },
+  "input": {
+    "item": "metalworkingbench:iron_plate"
+  },
+  "result": {
+    "item": "metalworkingbench:iron_rod",
+    "count": 1
+  }
+}
