@@ -2,6 +2,10 @@
 
 **Shape your metals by hand.** Metalworking Bench adds a simple, old-school workbench for turning metal ingots into plates, rods and wires, using nothing but hand tools. No machines, no energy, no power cables.
 
+Info:
+This mod was primarly made for our mod pack, which is currently in development.
+Therefore it supports datapack driven custom recipes and does not add much on itself.
+
 ## Features
 
 - **Metalworking Bench**: a dedicated workbench block with its own GUI
@@ -41,11 +45,7 @@ Place an item in the input slot, put a tool in the tool slot, and take the resul
 
 ## Feedback and bug reports
 
-Found a bug or have an idea? Please open an issue on the issue tracker: [link]
-
-## License
-
-[Add your license here, e.g. MIT / All Rights Reserved]
+Found a bug or have an idea? Please open an issue on the github issue tracker.
 
 ---
 Made by Selsus74
