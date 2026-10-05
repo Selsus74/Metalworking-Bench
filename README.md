@@ -1,2 +1,51 @@
 # Metalworking Bench
-Metalworking Bench Mod for Minecraft
+
+**Shape your metals by hand.** Metalworking Bench adds a simple, old-school workbench for turning metal ingots into plates, rods and wires, using nothing but hand tools. No machines, no energy, no power cables.
+
+## Features
+
+- **Metalworking Bench**: a dedicated workbench block with its own GUI
+- **Hand tools**: process metal with a **Hammer** and a **Wirecutter**
+- **New materials**: plates, rods and wires in **iron**, **gold** and **copper**
+- **Extra storage**: 9 additional slots (3x3) built into the bench GUI to keep your materials handy
+- **Vanilla feel**: the GUI and mechanics follow Minecraft's usual crafting style
+
+## How it works
+
+Place an item in the input slot, put a tool in the tool slot, and take the result from the output slot.
+
+| Input | Tool | Result |
+|-------|------|--------|
+| Ingot | Hammer | Plate |
+| Plate | Hammer | Rod |
+| Plate | Wirecutter | Wire |
+
+## Compatibility
+
+- **Minecraft:** 1.20.1
+- **Mod loader:** Forge
+- Works in singleplayer and on servers (install on both sides)
+
+## Installation
+
+1. Install Forge for Minecraft 1.20.1
+2. Download the latest `metalworkingbench-x.x.x.jar`
+3. Put it into your `mods` folder
+4. Launch the game
+
+## Planned
+
+- More metals
+- More tools and recipes
+- Improved bench model and textures
+
+## Feedback and bug reports
+
+Found a bug or have an idea? Please open an issue on the issue tracker: [link]
+
+## License
+
+[Add your license here, e.g. MIT / All Rights Reserved]
+
+---
+Made by Selsus74
