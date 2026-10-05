@@ -39,9 +39,8 @@ Place an item in the input slot, put a tool in the tool slot, and take the resul
 
 ## Planned
 
-- More metals
-- More tools and recipes
-- Improved bench model and textures
+- More tools and recipes (maybe - again it is made for pack devs to make use of in kubejs or something)
+- Improved bench model and textures (also just maybe, cause im not good with textures)
 
 ## Feedback and bug reports
 
