@@ -2,19 +2,22 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    " B ",
-    "PPP",
-    "S S"
+    "A  ",
+    "ABA",
+    "C D"
   ],
   "key": {
+    "A": {
+      "item": "minecraft:smooth_stone_slab"
+    },
     "B": {
-      "item": "minecraft:iron_block"
+      "item": "minecraft:anvil"
     },
-    "P": {
-      "tag": "minecraft:planks"
+    "C": {
+      "tag": "minecraft:fences"
     },
-    "S": {
-      "item": "minecraft:stick"
+    "D": {
+      "item": "minecraft:barrel"
     }
   },
   "result": {
