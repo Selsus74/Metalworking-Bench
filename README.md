@@ -1,4 +1,4 @@
-# Metalworking Bench
+<img width="1280" height="320" alt="metalworking-bench-banner" src="https://github.com/user-attachments/assets/733bd23c-c0e4-4044-9011-a9e4a5317c24" />
 
 **Shape your metals by hand.** Metalworking Bench adds a simple, old-school workbench for turning metal ingots into plates, rods and wires, using nothing but hand tools. No machines, no energy, no power cables.
 
