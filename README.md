@@ -6,8 +6,10 @@ Info:
 This mod was primarly made for our mod pack, which is currently in development.
 Therefore it supports datapack driven custom recipes and does not add much on itself.
 
-[![Modrinth](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/available/modrinth_vector.svg)](https://modrinth.com/mod/metalworking-bench)
-[![CurseForge](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/metalworking-bench)
+[![Modrinth](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/compact/available/modrinth_vector.svg)](https://modrinth.com/mod/metalworking-bench)
+[![CurseForge](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/compact/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/metalworking-bench)
+
+![Available Forge](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/supported/forge_vector.svg)
 
 ## Features
 
