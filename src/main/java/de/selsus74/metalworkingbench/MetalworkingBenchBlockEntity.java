@@ -3,6 +3,9 @@ package de.selsus74.metalworkingbench;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.MenuProvider;
@@ -15,8 +18,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MetalworkingBenchBlockEntity extends BlockEntity implements MenuProvider {
     public static final int INPUT = 0, TOOL = 1, OUTPUT = 2, SLOT_COUNT = 12;
+
+    //---number of tools which can get rendered from the 3x3 storage---
+    private static final int MAX_DISPLAY_TOOLS = 3;
 
     private final ItemStackHandler items = new ItemStackHandler(SLOT_COUNT) {
         @Override
@@ -25,6 +34,9 @@ public class MetalworkingBenchBlockEntity extends BlockEntity implements MenuPro
                 updateResult();
             }
             setChanged();
+            if (level != null && !level.isClientSide) {
+                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+            }
         }
     };
 
@@ -34,6 +46,23 @@ public class MetalworkingBenchBlockEntity extends BlockEntity implements MenuPro
 
     public ItemStackHandler getItems() {
         return items;
+    }
+
+    //---the getter the renderer calls---
+    public ItemStack getInputStack() {
+        return items.getStackInSlot(INPUT);
+    }
+
+    //---getter for the tools (every item with durability) in the storage 3x3---
+    public List<ItemStack> getDisplayTools() {
+        List<ItemStack> result = new ArrayList<>(MAX_DISPLAY_TOOLS);
+        for (int i = 0; i < items.getSlots() && result.size() < MAX_DISPLAY_TOOLS; i++) {
+            ItemStack stack = items.getStackInSlot(i);
+            if (!stack.isEmpty() && stack.isDamageableItem()) {
+                result.add(stack);
+            }
+        }
+        return result;
     }
 
     @Override
@@ -56,6 +85,17 @@ public class MetalworkingBenchBlockEntity extends BlockEntity implements MenuPro
     public void load(CompoundTag tag) {
         super.load(tag);
         items.deserializeNBT(tag.getCompound("Inventory"));
+    }
+
+    // send the inventory to the client when the chunk loads or the block updates
+    @Override
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     private void updateResult() {
