@@ -1,10 +1,15 @@
-# Metalworking Bench
+<img width="1280" height="320" alt="metalworking-bench-banner" src="https://github.com/user-attachments/assets/733bd23c-c0e4-4044-9011-a9e4a5317c24" />
 
 **Shape your metals by hand.** Metalworking Bench adds a simple, old-school workbench for turning metal ingots into plates, rods and wires, using nothing but hand tools. No machines, no energy, no power cables.
 
 Info:
 This mod was primarly made for our mod pack, which is currently in development.
 Therefore it supports datapack driven custom recipes and does not add much on itself.
+
+[![Modrinth](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/compact/available/modrinth_vector.svg)](https://modrinth.com/mod/metalworking-bench)
+[![CurseForge](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/compact/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/metalworking-bench)
+
+![Available Forge](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/supported/forge_vector.svg)
 
 ## Features
 
