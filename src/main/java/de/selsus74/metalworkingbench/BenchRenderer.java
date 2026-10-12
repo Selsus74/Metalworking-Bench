@@ -23,9 +23,9 @@ public class BenchRenderer implements BlockEntityRenderer<MetalworkingBenchBlock
 
     //---Tools from the extra storage: x, y, z, rot, rot---
     private static final double[][] TOOL_SLOTS = {
-            {-0.10, 0.82, 0.20, 80, 90}, // first tool (takes tool slot if possible)
-            {0.32, 1.10, 0.85, 0, 0}, // second
-            {-0.40, 1.10, 0.85, 0, 0}, // third
+            {-0.10, 0.83, 0.20, 80, 90},    // first tool (takes tool slot if possible) - displayed: front
+            {0.32, 1.10, 0.85, 0, 0},       // second - displayed: back(toolrack)
+            {-0.40, 1.10, 0.85, 0, 0},      // third - displayed: back(toolrack)
     };
     private static final float TOOL_ITEM_SCALE = 0.4f;      // item size on the surface
 

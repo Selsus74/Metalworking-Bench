@@ -2,6 +2,7 @@ package de.selsus74.metalworkingbench;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -40,31 +41,25 @@ public class MetalworkingBenchBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<BenchPart> PART = EnumProperty.create("part", BenchPart.class);
 
-    // Hitbox / collision per facing. Shapes are written for facing = NORTH and rotated afterwards.
+    //---Hitbox / collision per facing - Shapes are written for facing = NORTH and rotated afterward---
     private static final Map<Direction, VoxelShape> MAIN_SHAPES = new EnumMap<>(Direction.class);
     private static final Map<Direction, VoxelShape> EXTENSION_SHAPES = new EnumMap<>(Direction.class);
 
+    //---get voxel shapes from model json---
+    private static final VoxelShape MAIN_VOXEL =
+            ModelShapes.fromModel(new ResourceLocation(MetalworkingBench.MOD_ID, "block/metalworking_bench_main"));
+    private static final VoxelShape EXTENSION_VOXEL =
+            ModelShapes.fromModel(new ResourceLocation(MetalworkingBench.MOD_ID, "block/metalworking_bench_extension"));
+
     static {
-        VoxelShape tableTop = Block.box(0, 11, 0, 16, 13, 16);
-
-        VoxelShape main = Shapes.or(tableTop,
-                Block.box(12, 0, 1, 15, 11, 4),     // leg
-                Block.box(12, 0, 12, 15, 11, 15),   // leg
-                Block.box(1, 11, 4, 15, 14, 12),    // anvil top
-                Block.box(0, 13, 15, 16, 23, 16));  // backwall
-
-        VoxelShape extension = Shapes.or(tableTop,
-                Block.box(0, 0, 0, 11, 11, 16),     // leg
-                Block.box(0, 13, 15, 16, 23, 16));  // backwall
-
         for (Direction direction : Direction.Plane.HORIZONTAL) {
             int turns = (direction.get2DDataValue() + 2) % 4; // NORTH = 0 turns, EAST = 1, ...
-            MAIN_SHAPES.put(direction, rotateShape(main, turns));
-            EXTENSION_SHAPES.put(direction, rotateShape(extension, turns));
+            MAIN_SHAPES.put(direction, rotateShape(MAIN_VOXEL, turns));
+            EXTENSION_SHAPES.put(direction, rotateShape(EXTENSION_VOXEL, turns));
         }
     }
 
-    /** Rotates a shape clockwise (seen from above) around the block center by 90 degrees per turn. */
+    //---Rotates a shape clockwise (seen from above) around the block center by 90 degrees per turn---
     private static VoxelShape rotateShape(VoxelShape shape, int turns) {
         VoxelShape result = shape;
         for (int i = 0; i < turns; i++) {
@@ -90,7 +85,7 @@ public class MetalworkingBenchBlock extends BaseEntityBlock {
 
     // ---------- helpers ----------
 
-    /** Direction from this half to the other half. */
+    //---Direction from this half to the other half---
     private static Direction towardsOtherHalf(BlockState state) {
         Direction facing = state.getValue(FACING);
         return state.getValue(PART) == BenchPart.MAIN ? facing.getCounterClockWise() : facing.getClockWise();
