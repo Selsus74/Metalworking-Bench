@@ -25,7 +25,7 @@ public class MetalworkingBenchBlockEntity extends BlockEntity implements MenuPro
     public static final int INPUT = 0, TOOL = 1, OUTPUT = 2, SLOT_COUNT = 12;
 
     //---number of tools which can get rendered from the 3x3 storage---
-    private static final int MAX_DISPLAY_TOOLS = 3;
+    private static final int MAX_DISPLAY_TOOLS = 4;
 
     private final ItemStackHandler items = new ItemStackHandler(SLOT_COUNT) {
         @Override
