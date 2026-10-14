@@ -11,6 +11,7 @@ Therefore it supports datapack driven custom recipes and does not add much on it
 
 <img alt="Available for Forge" style="pointer-events: none;" src="https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/supported/forge_vector.svg" />
 
+
 ## Features
 
 - **Metalworking Bench**: a dedicated workbench block with its own GUI
@@ -31,9 +32,7 @@ Place an item in the input slot, put a tool in the tool slot, and take the resul
 
 ## Compatibility
 
-- **Minecraft:** 1.20.1
-- **Mod loader:** Forge
-- Works in singleplayer and on servers (install on both sides)
+![CurseForge Game Versions](https://img.shields.io/curseforge/game-versions/1728905)
 
 ## Installation
 
@@ -53,3 +52,5 @@ Found a bug or have an idea? Please open an issue on the github issue tracker.
 
 ---
 Made by Selsus74
+
+![GitHub License](https://img.shields.io/github/license/Selsus74/Metalworking-Bench)
