@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -12,11 +13,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+//---mod start point declaration---
 @Mod(MetalworkingBench.MOD_ID)
 public class MetalworkingBench {
     public static final String MOD_ID = "metalworkingbench";
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    //---register common resources---
     public MetalworkingBench(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
         ModItems.register(modEventBus);
@@ -26,9 +29,11 @@ public class MetalworkingBench {
         ModMenuTypes.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
         ModRecipes.register(modEventBus);
+        ModParticles.PARTICLES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    //---register client only (nested class)---
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
@@ -39,6 +44,10 @@ public class MetalworkingBench {
         @SubscribeEvent
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.METALWORKING_BENCH.get(), BenchRenderer::new);
+        }
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.SPARK.get(), SparkParticle.Provider::new);
         }
     }
 }

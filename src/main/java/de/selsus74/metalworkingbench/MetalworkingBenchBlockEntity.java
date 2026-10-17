@@ -6,6 +6,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.MenuProvider;
@@ -21,11 +24,15 @@ import net.minecraftforge.items.ItemStackHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+import static de.selsus74.metalworkingbench.ParticleRenderer.spawnSparks;
+
 public class MetalworkingBenchBlockEntity extends BlockEntity implements MenuProvider {
     public static final int INPUT = 0, TOOL = 1, OUTPUT = 2, SLOT_COUNT = 12;
 
     //---number of tools which can get rendered from the 3x3 storage---
     private static final int MAX_DISPLAY_TOOLS = 4;
+    //---count ticks to limit sounds and particles---
+    private long lastEffectTick = -1;
 
     private final ItemStackHandler items = new ItemStackHandler(SLOT_COUNT) {
         @Override
@@ -48,7 +55,7 @@ public class MetalworkingBenchBlockEntity extends BlockEntity implements MenuPro
         return items;
     }
 
-    //---the getter the renderer calls---
+    //---the getter for INPUT slot (the renderer calls this to display items)---
     public ItemStack getInputStack() {
         return items.getStackInSlot(INPUT);
     }
@@ -122,6 +129,19 @@ public class MetalworkingBenchBlockEntity extends BlockEntity implements MenuPro
                 p -> p.broadcastBreakEvent(InteractionHand.MAIN_HAND));
         updateResult();
         setChanged();
+
+        //---crafting effects---
+        //---limit to once per crafting (makes only one action even if bulk crafted---
+        long now = level.getGameTime();
+        if (now == lastEffectTick) return;   // at most once per 5 ticks
+        lastEffectTick = now;
+        if (this.level instanceof ServerLevel serverLevel) {
+            //---call SparkRenderer---
+            spawnSparks(serverLevel, this.getBlockPos());
+            //---play anvil sound---
+            level.playSound(null, this.getBlockPos(), SoundEvents.ANVIL_USE, SoundSource.BLOCKS,
+                    0.4F, 1.3F + level.random.nextFloat() * 0.3F);
+        }
     }
 
     public void dropContents() {
