@@ -8,6 +8,7 @@ Therefore it supports datapack driven custom recipes and does not add much on it
 
 [![Modrinth](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/compact/available/modrinth_vector.svg)](https://modrinth.com/mod/metalworking-bench)
 [![CurseForge](https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/compact/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/metalworking-bench)
+[![github](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact/available/github_46h.png)](https://github.com/Selsus74/Metalworking-Bench)
 
 <img alt="Available for Forge" style="pointer-events: none;" src="https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/supported/forge_vector.svg" />
 
