@@ -21,15 +21,43 @@ Therefore it supports datapack driven custom recipes and does not add much on it
 - **Extra storage**: 9 additional slots (3x3) built into the bench GUI to keep your materials handy
 - **Vanilla feel**: the GUI and mechanics follow Minecraft's usual crafting style
 
-## How it works
-
-Place an item in the input slot, put a tool in the tool slot, and take the result from the output slot.
-
-| Input | Tool | Result |
-|-------|------|--------|
-| Ingot | Hammer | Plate |
-| Plate | Hammer | Rod |
-| Plate | Wirecutter | Wire |
+## For Modpack Devs
+### Datapacks
+Custom Recipes can be added via datapacks in JSON-Format. Create a JSON for each Recipe (Ressourcelocation: `data/metalworkingbench/recipes/YOUR_JSON`):
+```json
+{
+  "type": "metalworkingbench:metalworking",
+  "tool": {
+    "item": "metalworkingbench:hammer"
+  },
+  "input": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": {
+    "item": "metalworkingbench:iron_plate",
+    "count": 1
+  }
+}
+```
+### KubeJS
+Or add recipes via KubeJS. 
+```javascript
+ServerEvents.recipes(event => {
+    event.custom({
+        type: 'metalworkingbench:metalworking',
+        tool: {
+            item: 'metalworkingbench:hammer'
+        },
+        input: {
+            item: 'minecraft:iron_ingot'
+        },
+        result: {
+            item: 'metalworkingbench:iron_plate',
+            count: 1
+        }
+    });
+});
+```
 
 ## Compatibility
 
